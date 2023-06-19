@@ -10,6 +10,7 @@ RUN pip install --no-cache-dir "poetry==1.3.2"
 # Copy only requirements to cache them in docker layer
 COPY poetry.lock .
 COPY pyproject.toml .
+COPY dash_example dash_example/
 
 # Project initialization:
 RUN poetry config virtualenvs.create false \

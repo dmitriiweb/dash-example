@@ -7,7 +7,7 @@ services:
       dockerfile: dash.dockerfile
     volumes:
       - ./:/code
-    command: ["gunicorn", "-b", "0.0.0.0:8050", "dash_example.__main__:app.server"]
+    command: ["gunicorn", "-b", "0.0.0.0:8050", "dash_example.__main__:server"]
     sysctls:
       net.core.somaxconn: 65536
     ports:

@@ -1,7 +1,12 @@
 from dash import dcc, html
 from dash.dependencies import Input, Output
-from dash_example.app import app
+import dash
 
+app = dash.Dash(
+    suppress_callback_exceptions=True
+)
+
+server = app.server
 
 app.layout = html.Div(
     [
