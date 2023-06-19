@@ -8,9 +8,6 @@ services:
     volumes:
       - ./:/code
     command: ["gunicorn", "-b", "0.0.0.0:8050", "dash_example.__main__:app.server"]
-    depends_on:
-      oibot_db:
-        condition: service_healthy
     sysctls:
       net.core.somaxconn: 65536
     ports:
