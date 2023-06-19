@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  dash_example:
+    container_name: dash_example
+    build:
+      context: .
+      dockerfile: dash.dockerfile
+    volumes:
+      - ./:/code
+    command: ["gunicorn", "-b", "0.0.0.0:8050", "dash_example.__main__:app.server"]
+    depends_on:
+      oibot_db:
+        condition: service_healthy
+    sysctls:
+      net.core.somaxconn: 65536
+    ports:
+      - 8050:8050
